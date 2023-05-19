@@ -1,0 +1,577 @@
+/* style_myweb.css aqui están los estilos de mi página web con portafolio*/
+
+/*!
+Theme Name: miweb
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: miweb
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+miweb is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+#1 Typography
+#2 Generic		
+#3 Navigation
+#4 Home
+#5 Main container
+#6 Projects list section
+#7 Project detail
+#8 About
+#9 Contact
+#10 Footer
+#11 Media queries
+--------------------------------------------------------------*/
+
+
+/* #1 Typography */
+@font-face {
+    font-family: 'finger';
+    src: url('./assets/css/fonts/finger.ttf');
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/css/fonts/poppins-regular.ttf');
+}
+
+/* #2 Generic */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+body{    
+    font-size: 20px;
+    background: url('./assets/img/pattern.png');
+    background-attachment: fixed;
+    /*display: grid;
+    grid-template-rows: auto 1fr auto;*/
+    min-height: 100vh;
+}
+#page{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/*Variables*/
+:root{
+    --color_text-primary: rgb(18 164 183);
+    --color_text-secondary: rgb(64, 68, 68);
+    --color_text-tertiaty: rgb(12, 30, 131);
+}
+
+/* #3 Navigation */
+#navMenu{
+    background-color: var(--color_text-primary);;
+    width: 100%;    
+    position: fixed;    
+    z-index: 1;  
+    height: 50px;
+}
+#mainMenu{    
+    background-color: var(--color_text-primary);;
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    
+}
+#toggle-menu img{
+    max-width: 100%;
+}
+.toggle-menu{
+    width: 40px;
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    /*filter: invert(1);*/
+    filter: invert(28%) sepia(32%) saturate(332%) hue-rotate(153deg) brightness(94%) contrast(95%);
+    z-index: 1;
+}
+@media screen and (min-width: 768px){
+    #mainMenu{
+        flex-direction: row;
+        transform: translateY(0);
+    }    
+    .toggle-menu{
+        display: none;
+    }
+}
+.mainMenu{
+    transform: translateY(-100%);
+}
+.mainMenu--show{
+    transform: translateY(0);
+}
+#navMenu a {
+    text-decoration: none;
+    color: var(--color_text-tertiaty);
+    font-weight: 600;    
+    height: inherit;    
+    line-height: 50px;
+    transition: color 500ms, transform 500ms;
+}
+#navMenu .active{
+    background-color: rgba(100, 108, 147,0.8);
+    color: #fff;       
+}
+#navMenu a:hover{
+    background-color: rgba(100, 108, 147,0.8);
+    color: #fff;
+    transform: scale(1.50,1.50);   
+}
+
+/* #4 Home */
+.container-cover{
+    background-color: var(--color_text-primary);    
+    padding: 25px;
+}
+.container-trust{    
+    padding: 25px;
+}
+.cover{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;      
+    padding-top: 50px;
+    align-items: center;
+    justify-items: center;
+}
+section#text-cover {
+    text-align: center;
+    color: #fff;    
+}
+.text-titles{
+    margin-bottom: 40px;
+}
+
+.image-cover{
+    max-width: 100%;
+}
+.image-cover img{
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0px 0px 20px rgb(12 99 99);
+}
+.card-primary{
+    text-align: center;
+}
+p.paragraphHome{    
+    color: var(--color_text-tertiaty);
+    font-weight: 600;    
+    height: inherit;    
+    line-height: 5px;
+    transition: color 500ms, transform 500ms;
+}
+h1.titlesHome {
+    font-weight: 600;
+    font-size: 2rem;
+}
+.container-box-primary{
+    display: grid;
+    grid-template-rows: auto;      
+    gap: 25px;    
+    text-align: center;
+    justify-items: center;
+}
+.box-card-primary{
+    max-width: 100%;
+    border: 1px solid #c9c8c8;
+    border-radius: 20px;
+    padding: 25px;  
+    box-shadow: 0px 0px 20px rgb(166, 170, 170);
+    transition: all 300ms;  
+    max-width: 400px;
+}
+.box-card-primary:hover{    
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 40px black;
+}
+.box-card-primary.inventory img{    
+    filter: invert(34%) sepia(53%) saturate(841%) hue-rotate(297deg) brightness(94%) contrast(86%);
+}
+.box-card-primary.kpi img{    
+    filter: invert(65%) sepia(26%) saturate(426%) hue-rotate(112deg) brightness(94%) contrast(92%);
+}
+.box-card-primary.report img{    
+    filter: invert(66%) sepia(68%) saturate(392%) hue-rotate(353deg) brightness(96%) contrast(94%);
+}
+.container-sectors{
+    background-color: #dce2e1;    
+    padding: 25px;
+    text-align: center;
+}
+.card-sector img{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgb(166, 170, 170);
+}
+.card-sector {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    width: 100%;
+    max-width: 400px;
+}
+.card-trust h2, .card-sector h2{
+    margin-top: 1rem;
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+/* #5 Main container*/
+.containerProjects{    
+    max-width: 100%;
+    padding:20px;
+    margin-right: 0px;
+    margin-left: 0px;       
+    margin-top: 0px;    
+}
+#content{    
+    min-height: 95vh;
+    padding-top: 50px;
+    width: 100%;    
+    box-shadow: 0px 0px 40px black;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+}
+
+/* #6 Projects list section */
+.projects{
+    display: grid;
+    grid-template-rows: auto;    
+    gap: 20px;
+}
+.cardProject{    
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+    background-color: #d5d5d5;
+    box-shadow: 5px 5px 10px gray;
+}
+.cardProject:hover{
+    box-shadow: inset -5px -5px 10px 0 rgb(189, 245, 245);
+    
+}
+.cardProject img{
+    max-width: 100%;
+    height: 60%; 
+    border-radius: 5%;
+    display: block;
+}
+.projectBtn{
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #12a4b7;
+    border: 1px solid #12a4b7;
+    font-weight: 500;
+    line-height: 1.5;
+    display: inline-block;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+h2.titlePage {
+    margin-bottom: 15px;    
+}
+h1.titlePage {  
+    text-align: center;
+    font-size: 1.75rem;
+}
+.descriptionParagraph{
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    max-width: 95%;
+}
+.cardProject h3{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/*Animaciones*/
+.cardProject{
+    position: relative;
+    overflow: hidden;
+}
+
+.cardProject::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 2, 92, 0.377);    
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+.cardProject:hover::after{
+    transform: translateY(0);
+}
+
+
+/* #7 Project detail*/
+.project{        
+    display: grid;
+    grid-template-rows: auto auto;    
+    margin-bottom: 20px;    
+    gap: 20px;
+}
+.container h1{
+    margin-bottom: 20px;
+}
+a.button{    
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;    
+    padding-left: 10px;
+    padding-right: 10px;    
+    text-decoration: none;
+}
+a.edit{
+    background-color: rgba(55, 71, 123, 1);
+    border: 1px solid #293266;
+}
+a.edit:hover{      
+    background-color: rgba(55, 71, 123, 0.85);
+}
+a.delete{
+    background-color: rgba(159, 2, 20, 1);
+    border: 1px solid #7c0412;
+}
+a.delete:hover{      
+    background-color: rgba(159, 2, 20, 0.85);
+}
+.buttonsDetail {
+    display: flex; 
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+p.detailProject {
+    margin: 0.2rem;
+}
+.imageContentProject {
+    display: grid;
+    justify-items: center;
+}
+img.imageProject{    
+    max-width: 100%;    
+}
+.detailsSingle {    
+    text-align: justify;
+}
+
+/*Carousel*/
+.carousel-item.active{        
+    background-color: transparent;
+    /*position: relative;*/
+}
+.carousel-captionOwner{    
+    width: 100%;   
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #530045;
+    margin-top: 10px;
+}
+.carousel-captionOwner h5 {
+    font-weight: 600;
+}
+.containerCarousel {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0px auto;
+}
+.carousel-control-next-icon { 
+    filter: invert(1);
+}
+.carousel-control-prev-icon {
+    filter: invert(1);
+}
+.carousel-inner {    
+    width: 100%;    
+    margin: 0 auto;
+}
+.carousel-control-next, .carousel-control-prev {
+    width: 5%;
+}
+
+
+/* #8 About */
+#title{
+    width: 70%;
+    margin: 0px auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#title h1{
+    font-family: "finger";
+    font-size: 50px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#title h2{
+    font-size: 25px;
+    color: gray;
+    margin-top: 5px;
+    margin-top: 5px;
+}
+
+article.about{
+    width: 90%;
+    margin: 0px auto;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+.about h2{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.about p{
+    text-align: justify;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* #9 Contact */
+.contactContent{        
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* #10 Footer*/
+footer{
+    width: 100%;    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* #11 Media queries*/
+@media screen and (min-width: 490px) {
+    .project{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #content{     
+        padding-top: 50px;        
+    }    
+    article.about{
+        width: 70%;
+    }
+    .projects{
+        display: grid;        
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .project{
+        grid-template-columns: 2fr 1fr;
+    }
+    #content{     
+        padding-top: 50px;
+        width: 75%;
+        margin: 0px auto;
+    }    
+    .projects{
+        display: grid;        
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }  
+    .containerProjects{            
+        padding: 40px;        
+        margin-right: 20px;
+        margin-left: 20px;       
+        margin-top: 20px;    
+    }  
+    h1.titlePage {     
+        text-align: left;
+    }
+    .cover{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+    section#text-cover {
+        width: 65%;
+        text-align: initial;
+    }
+    .container-box-primary{        
+        grid-template-columns: 1fr 1fr 1fr;     
+        grid-template-rows: none;        
+    }
+    .card-primary{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+    .box-card-primary{
+        max-width: 300px;        
+        margin: 0 auto;
+    }
+    .card-sector {     
+        max-width: 300px;        
+    }
+    
+}
+
+@media screen and (min-width: 1500px){
+    .box-card-primary{
+        max-width: 400px;
+    }
+    .card-sector {     
+        max-width: 400px;        
+    }
+}
+
+.error-404 {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;    
+    height: 100%;    
+}
+.error-404 h1{
+    font-size: 1.5rem;
+}
