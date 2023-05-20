@@ -68,3 +68,6 @@ $ npm install
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
 Good luck!
+
+
+Este es un texto de prueba para hacer commit desde mi local al master y luego actualizarlo en wordpress producción
