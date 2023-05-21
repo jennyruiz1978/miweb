@@ -71,3 +71,5 @@ Good luck!
 
 
 Este es un texto de prueba2 para hacer commit desde mi local al master y luego actualizarlo en wordpress producción
+
+Este es un texto escrito por usuario RoloAndres
