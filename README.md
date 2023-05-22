@@ -84,11 +84,6 @@ Este es el tercer texto añadido por RoloAndres
 
 Este es el cuarto texto añadido por user Jenny desde la rama jenny
 
-<<<<<<< HEAD
 Este es el quinto texto añadido por user RoloAndres
 
 Este es el sexto texto añadido por user RoloAndres
-=======
-Este es el quinto texto añadido por user Jenny desde el master
-Este es el quinto texto añadido por user RoloAndres
->>>>>>> e10fb7d6abde2eea8c3d4fbe7172a83a61f14b47
