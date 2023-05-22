@@ -97,4 +97,8 @@ otros cambios Rolo
 otros cambios 2 Jenny
 otros cambios 2 Rolo
 
+<<<<<<< Updated upstream
 xxxxx
+=======
+yyyyyy de Jenny
+>>>>>>> Stashed changes
